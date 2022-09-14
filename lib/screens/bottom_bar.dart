@@ -14,7 +14,7 @@ class _BottomBarState extends State<BottomBar> {
   int _selectedIndex = 0;
   static final List<Widget> _widgetOptions = <Widget>[
     HomePage(),
-    SearchPage(),
+    const SearchPage(),
     const Text('Ticket'),
     const Text('Profile'),
   ];
@@ -30,9 +30,10 @@ class _BottomBarState extends State<BottomBar> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text("My Tickets"),
-      ),
+      // appBar: AppBar(
+      //   title: Text("My Tickets"),
+      //   elevation: 0,
+      // ),
       body: Center(
         child: _widgetOptions[_selectedIndex],
       ),
