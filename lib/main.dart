@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:travel_right/app_styles.dart';
 import 'package:travel_right/screens/bottom_bar.dart';
+import 'package:travel_right/utils/app_styles.dart';
 
 void main() {
   runApp(const MyApp());
