@@ -1,7 +1,9 @@
 import 'package:fluentui_icons/fluentui_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
+import 'package:travel_right/screens/hotel_views.dart';
 import 'package:travel_right/screens/ticket_view.dart';
+import 'package:travel_right/utils/app_info_list.dart';
 import 'package:travel_right/utils/app_styles.dart';
 
 class HomePage extends StatefulWidget {
@@ -94,7 +96,45 @@ class _HomePageState extends State<HomePage> {
             ),
           ),
           const Gap(15),
-          const TicketView(),
+          SingleChildScrollView(
+            scrollDirection: Axis.horizontal,
+            padding: const EdgeInsets.only(left: 20),
+            child: Row(
+              children: ticketList
+                  .map((singleTicket) => TicketView(ticket: singleTicket))
+                  .toList(),
+            ),
+          ),
+          const Gap(15),
+          Container(
+            padding: EdgeInsets.symmetric(horizontal: 20),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text("Hotels", style: Styles.headlineStyle2),
+                InkWell(
+                  onTap: () {
+                    print("Tap me more");
+                  },
+                  child: Text(
+                    'View all',
+                    style:
+                        Styles.textStyle.copyWith(color: Styles.primaryColor),
+                  ),
+                )
+              ],
+            ),
+          ),
+          const Gap(15),
+          SingleChildScrollView(
+            scrollDirection: Axis.horizontal,
+            padding: const EdgeInsets.only(left: 20),
+            child: Row(
+              children: hotelList
+                  .map((singleHotel) => HotelView(hotel: singleHotel))
+                  .toList(),
+            ),
+          )
         ],
       ),
     );
